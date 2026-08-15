@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Huma Electronics — Homepage
 
-## Getting Started
+Next.js 16 (App Router) + TypeScript + Tailwind CSS v4 + lucide-react +
+Framer Motion clone of the Huma Electronics homepage design.
 
-First, run the development server:
+## Getting started
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/app/page.tsx` — composes all homepage sections
+- `src/app/layout.tsx` — fonts (Poppins/Inter) + SEO metadata
+- `src/app/globals.css` — design tokens (colors) as Tailwind v4 `@theme` vars
+- `src/components/` — one file per section (`Header`, `Hero`, `ServicesGrid`,
+  `Expertise`, `WhyChooseUs`, `Process`, `Booking`, `Legacy`, `Footer`)
+- `src/components/ui/` — shared card/heading components
 
-## Learn More
+## Placeholder images to replace
 
-To learn more about Next.js, take a look at the following resources:
+All photographic content is stubbed with generated placeholder SVGs in
+`public/placeholders/`. Swap these for real photography before shipping —
+each one is referenced from a single component:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| File | Used in | Replace with |
+|---|---|---|
+| `public/placeholders/hero-technician.svg` | `Hero.tsx` | Photo of a technician servicing a wall-mounted AC in a living room |
+| `public/placeholders/expertise-tv.svg` | `Expertise.tsx` | TV panel repair photo |
+| `public/placeholders/expertise-audio.svg` | `Expertise.tsx` | Audio system service photo |
+| `public/placeholders/expertise-kitchen.svg` | `Expertise.tsx` | Kitchen appliances photo |
+| `public/placeholders/expertise-home.svg` | `Expertise.tsx` | Smart home appliance photo |
+| `public/placeholders/legacy.svg` | `Legacy.tsx` | Workshop / team photo |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The "Book Your Appliance Service" illustration (glowing nodes + tools icon)
+is built with inline SVG/lucide icons in `Booking.tsx` rather than an image
+placeholder, since it's a diagram rather than a photo — no asset swap needed
+there.
 
-## Deploy on Vercel
+## Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- The booking form uses controlled React state, not a native `<form>`
+  submit — `handleBookService` / `handleWhatsApp` in `Booking.tsx` are
+  stubbed with `TODO` comments for wiring to a real backend / WhatsApp
+  deep link.
+- `next.config.ts` enables `images.dangerouslyAllowSVG` so the local SVG
+  placeholders can go through `next/image`; once real JPG/PNG photos are
+  dropped in, that flag can be removed if you don't otherwise need SVGs.
