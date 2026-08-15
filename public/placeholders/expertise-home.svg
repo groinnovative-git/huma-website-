@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e7e5e4"/>
+      <stop offset="100%" stop-color="#a8a29e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <g transform="translate(330,220)" stroke="#0f172a" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 70 L70 10 L140 70"/>
+    <rect x="15" y="70" width="110" height="90" rx="4"/>
+  </g>
+  <text x="400" y="440" font-family="Arial" font-size="18" fill="#292524" text-anchor="middle">Placeholder — Smart home appliance photo</text>
+</svg>

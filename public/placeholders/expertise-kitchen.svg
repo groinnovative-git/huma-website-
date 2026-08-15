@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <g transform="translate(340,210)" stroke="#38bdf8" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0" y="0" width="120" height="150" rx="10"/>
+    <line x1="0" y1="60" x2="120" y2="60"/>
+  </g>
+  <text x="400" y="420" font-family="Arial" font-size="18" fill="#7dd3fc" text-anchor="middle">Placeholder — Kitchen appliances photo</text>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="320" viewBox="0 0 500 320">
+  <rect width="500" height="320" fill="#1e293b"/>
+  <g transform="translate(190,110)" stroke="#60a5fa" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0" y="0" width="120" height="80" rx="6"/>
+    <line x1="40" y1="100" x2="80" y2="100"/>
+  </g>
+  <text x="250" y="250" font-family="Arial" font-size="15" fill="#93c5fd" text-anchor="middle">Placeholder — TV circuit board bench photo</text>
+</svg>

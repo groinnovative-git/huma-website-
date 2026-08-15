@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#292524"/>
+      <stop offset="100%" stop-color="#1c1917"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <g transform="translate(350,220)" stroke="#f59e0b" stroke-width="6" fill="none">
+    <circle cx="50" cy="50" r="45"/>
+    <circle cx="50" cy="50" r="18"/>
+  </g>
+  <text x="400" y="420" font-family="Arial" font-size="18" fill="#fbbf24" text-anchor="middle">Placeholder — Audio system service photo</text>
+</svg>

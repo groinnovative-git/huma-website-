@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="320" viewBox="0 0 500 320">
+  <rect width="500" height="320" fill="#292524"/>
+  <g transform="translate(210,110)" stroke="#f59e0b" stroke-width="6" fill="none">
+    <circle cx="40" cy="40" r="36"/>
+    <circle cx="40" cy="40" r="14"/>
+  </g>
+  <text x="250" y="250" font-family="Arial" font-size="15" fill="#fbbf24" text-anchor="middle">Placeholder — amplifier repair photo</text>
+</svg>

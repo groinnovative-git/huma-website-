@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="560" viewBox="0 0 700 560">
+  <rect width="700" height="560" fill="#f1f5f9"/>
+  <g transform="translate(280,220)" stroke="#334155" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="70" cy="30" r="26"/>
+    <line x1="70" y1="56" x2="70" y2="110"/>
+    <line x1="30" y1="110" x2="110" y2="110"/>
+  </g>
+  <text x="350" y="420" font-family="Arial" font-size="18" fill="#475569" text-anchor="middle">Placeholder — diagnostic workshop / lab photo</text>
+</svg>
