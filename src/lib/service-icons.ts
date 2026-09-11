@@ -7,6 +7,7 @@ import {
   Eye,
   CircuitBoard,
   Settings,
+  Sparkles,
   type LucideIcon,
 } from "lucide-react";
 
@@ -19,4 +20,5 @@ export const SERVICE_ICONS: Record<string, LucideIcon> = {
   Eye,
   CircuitBoard,
   Settings,
+  Sparkles,
 };

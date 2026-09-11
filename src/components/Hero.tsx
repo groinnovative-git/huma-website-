@@ -1,10 +1,35 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Clock } from "lucide-react";
 
+const HERO_IMAGES = [
+  {
+    src: "/image 3.png",
+    alt: "Technician soldering a circuit board during repair",
+  },
+  {
+    src: "/image 1.png",
+    alt: "Technician closely inspecting a soldered circuit board",
+  },
+  {
+    src: "/image 2 (2).png",
+    alt: "Technician repairing the internal board of a flat-screen TV",
+  },
+];
+
 export default function Hero() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setActiveIndex((i) => (i + 1) % HERO_IMAGES.length);
+    }, 3500);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section className="mx-auto max-w-[1200px] px-6 py-12 lg:py-16">
       <div className="grid items-center gap-12 lg:grid-cols-[45%_55%]">
@@ -55,15 +80,41 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="relative aspect-[4/3] w-full overflow-hidden rounded-[28px]"
+          className="relative ml-auto aspect-[639/578] w-[85%]"
+          style={{
+            WebkitMaskImage: "url('/Vector.png')",
+            maskImage: "url('/Vector.png')",
+            WebkitMaskSize: "100% 100%",
+            maskSize: "100% 100%",
+            WebkitMaskRepeat: "no-repeat",
+            maskRepeat: "no-repeat",
+            WebkitMaskPosition: "center",
+            maskPosition: "center",
+          }}
         >
-          <Image
-            src="/Emergency AC Repair at Home – Technician in 60 Minutes.jpg"
-            alt="Technician in blue uniform servicing a wall-mounted air conditioner in a living room"
-            fill
-            priority
-            className="object-cover object-top"
-          />
+          <AnimatePresence mode="sync">
+            {HERO_IMAGES.map(
+              (image, index) =>
+                index === activeIndex && (
+                  <motion.div
+                    key={image.src}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1, ease: "easeInOut" }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      priority={index === 0}
+                      className="object-cover object-top"
+                    />
+                  </motion.div>
+                )
+            )}
+          </AnimatePresence>
         </motion.div>
       </div>
     </section>

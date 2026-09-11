@@ -24,9 +24,6 @@ export default function MediaPlaceholder() {
         transition={{ duration: 0.5 }}
         className="relative overflow-hidden"
       >
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-surface to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-surface to-transparent" />
-
         <motion.div
           className="flex w-max gap-6"
           animate={{ x: ["0%", "-50%"] }}

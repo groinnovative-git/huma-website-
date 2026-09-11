@@ -43,8 +43,8 @@ export default function ServicesHero() {
           className="relative aspect-[3/2] w-full overflow-hidden rounded-2xl"
         >
           <Image
-            src="/download.jpg"
-            alt="Technicians in blue uniforms servicing an air conditioner, a washing machine, and a refrigerator"
+            src="/serviceheroimg.png"
+            alt="Huma Electronics technicians repairing a microwave, robot vacuum, speaker, and circuit board on a workshop bench"
             fill
             priority
             className="object-cover"

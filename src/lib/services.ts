@@ -59,7 +59,7 @@ export const SERVICES: ServiceCategory[] = [
     id: "personal-appliances",
     title: "Personal Appliances",
     subtitle: "Hair Dryers, Grooming Kits",
-    icon: "Wind",
+    icon: "Sparkles",
     details: [
       "Heating element repair",
       "Motor & switch replacement",
