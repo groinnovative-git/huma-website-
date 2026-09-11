@@ -50,6 +50,7 @@ export default function AboutHero() {
             alt="The Huma Electronics Workshop storefront, with TV, audio, and appliance repair signage"
             fill
             priority
+            sizes="(min-width: 1024px) 600px, 100vw"
             className="object-cover object-top"
           />
         </motion.div>

@@ -21,6 +21,7 @@ export default function Legacy() {
             src="/founde.png"
             alt="Founder of Huma Electronics in his office"
             fill
+            sizes="(min-width: 1024px) 384px, 320px"
             className="object-cover"
           />
         </motion.div>

@@ -8,14 +8,17 @@ const LOOP_REVIEWS = [...REVIEWS, ...REVIEWS];
 
 const REVIEW_LINK = "https://g.page/r/CbFQe2l4NnHwEAE/review";
 
+// Darkened to -700 shades (from -500 / brand whatsapp green) so white
+// initials clear WCAG AA (>= 4.5:1) contrast. bg-primary already passes
+// and is left as-is; the floating WhatsApp brand button is untouched.
 const avatarColors = [
   "bg-primary",
-  "bg-whatsapp",
-  "bg-amber-500",
-  "bg-rose-500",
-  "bg-violet-500",
-  "bg-teal-500",
-  "bg-orange-500",
+  "bg-green-700",
+  "bg-amber-700",
+  "bg-rose-700",
+  "bg-violet-700",
+  "bg-teal-700",
+  "bg-orange-700",
 ];
 
 function initials(name: string) {

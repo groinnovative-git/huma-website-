@@ -109,6 +109,7 @@ export default function Hero() {
                       alt={image.alt}
                       fill
                       priority={index === 0}
+                      sizes="(min-width: 1024px) 540px, 85vw"
                       className="object-cover object-top"
                     />
                   </motion.div>

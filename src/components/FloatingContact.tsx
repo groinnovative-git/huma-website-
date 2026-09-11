@@ -4,9 +4,7 @@ import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Headset, Phone, X } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-
-const PHONE_HREF = "tel:+971556371671";
-const WHATSAPP_HREF = "https://wa.me/971556371671";
+import { PHONE_HREF, WHATSAPP_HREF } from "@/lib/contact";
 
 export default function FloatingContact() {
   const [open, setOpen] = useState(false);

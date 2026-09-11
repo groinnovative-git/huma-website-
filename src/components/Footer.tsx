@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { Phone, MessageCircle } from "lucide-react";
+import { PHONE_HREF, WHATSAPP_HREF, INSTAGRAM_HREF } from "@/lib/contact";
 
 function InstagramIcon() {
   return (
@@ -10,12 +12,17 @@ function InstagramIcon() {
   );
 }
 
-const quickLinks = ["Home", "Services", "Contact", "About"];
+const quickLinks = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Contact", href: "/contact" },
+  { label: "About", href: "/about" },
+];
 const serviceLinks = [
-  "Tv Repair",
-  "Audio Restoration",
-  "Home Appliances",
-  "Smart Home Help",
+  { label: "Tv Repair", href: "/services?category=tv-display" },
+  { label: "Audio Restoration", href: "/services?category=audio-sound" },
+  { label: "Home Appliances", href: "/services?category=home-appliances" },
+  { label: "Multi-Brand Services", href: "/services?category=multi-brand" },
 ];
 
 export default function Footer() {
@@ -35,10 +42,10 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-ink">Quick links</h4>
             <ul className="mt-4 space-y-2">
               {quickLinks.map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-sm text-body hover:text-primary">
-                    {link}
-                  </a>
+                <li key={link.label}>
+                  <Link href={link.href} className="text-sm text-body hover:text-primary">
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -48,10 +55,10 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-ink">Our services</h4>
             <ul className="mt-4 space-y-2">
               {serviceLinks.map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-sm text-body hover:text-primary">
-                    {link}
-                  </a>
+                <li key={link.label}>
+                  <Link href={link.href} className="text-sm text-body hover:text-primary">
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -61,21 +68,25 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-ink">Stay Connected</h4>
             <div className="mt-4 flex items-center gap-3">
               <a
-                href="tel:+10000000000"
+                href={PHONE_HREF}
                 aria-label="Phone"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white transition-colors hover:bg-primary-dark"
               >
                 <Phone className="h-4 w-4" aria-hidden="true" />
               </a>
               <a
-                href="#"
+                href={INSTAGRAM_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Instagram"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white transition-colors hover:bg-primary-dark"
               >
                 <InstagramIcon />
               </a>
               <a
-                href="#"
+                href={WHATSAPP_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="WhatsApp"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white transition-colors hover:bg-primary-dark"
               >

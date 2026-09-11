@@ -1,31 +1,7 @@
 "use client";
 
-import { Headphones, ShieldCheck, Wrench, HeartHandshake } from "lucide-react";
+import { motion } from "framer-motion";
 import SectionHeading from "./ui/SectionHeading";
-import FeatureCard from "./ui/FeatureCard";
-
-const features = [
-  {
-    icon: Headphones,
-    title: "Wide Support",
-    description: "Comprehensive care for all major brands and models.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Reliable Service",
-    description: "Consistent, high-quality repairs you can always count on.",
-  },
-  {
-    icon: Wrench,
-    title: "Experienced Tech",
-    description: "Certified professionals with decades of combined expertise.",
-  },
-  {
-    icon: HeartHandshake,
-    title: "Customer First",
-    description: "We don't just fix electronics; we solve your problems.",
-  },
-];
 
 export default function WhyChooseUs() {
   return (
@@ -35,10 +11,115 @@ export default function WhyChooseUs() {
         subtitle="Building trust through technical precision and customer-focused service models."
       />
 
-      <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {features.map((feature) => (
-          <FeatureCard key={feature.title} {...feature} />
-        ))}
+      <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Card 1: Wide Support */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.4 }}
+          className="rounded-[24px] border border-[#dbeafe] bg-white p-6 shadow-sm"
+        >
+          <div className="mb-4 text-[#1e40af]">
+            <svg
+              width="42"
+              height="42"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z" />
+              <path d="M21 16v2a4 4 0 0 1-4 4h-5" />
+            </svg>
+          </div>
+          <h3 className="text-[17px] font-semibold text-gray-900">Wide Support</h3>
+          <p className="mt-2 text-[14px] leading-relaxed text-gray-600">
+            Comprehensive care for all major brands and models.
+          </p>
+        </motion.div>
+
+        {/* Card 2: Reliable Service */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+          className="rounded-[24px] border border-[#dbeafe] bg-white p-6 shadow-sm"
+        >
+          <div className="mb-4">
+            <svg width="42" height="42" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                fill="#60a5fa"
+              />
+              <path d="M12 22s8-4 8-10V5l-8-3v20z" fill="#1e3a8a" />
+            </svg>
+          </div>
+          <h3 className="text-[17px] font-semibold text-gray-900">Reliable Service</h3>
+          <p className="mt-2 text-[14px] leading-relaxed text-gray-600">
+            Consistent, high-quality repairs you can always count on.
+          </p>
+        </motion.div>
+
+        {/* Card 3: Experienced Tech */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          className="rounded-[24px] border border-[#dbeafe] bg-white p-6 shadow-sm"
+        >
+          <div className="mb-4 text-[#1e40af]">
+            <svg
+              width="42"
+              height="42"
+              viewBox="0 0 64 64"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clipPath="url(#clip0_4154_2339)">
+                <path fillRule="evenodd" clipRule="evenodd" d="M17.9198 29.08C18.9598 30.12 23.0398 34.4 23.0398 34.4L25.2798 32.08L21.7598 28.44L28.5198 21.24C28.5198 21.24 25.4798 18.28 26.7998 19.44C28.0798 14.68 26.9198 9.4 23.3198 5.68C19.7198 2 14.6398 0.8 10.0798 2.04L17.7998 10.04L15.7598 17.88L8.19981 19.96L0.479813 11.96C-0.760187 16.68 0.399813 21.92 3.99981 25.6C7.75981 29.52 13.1598 30.64 17.9198 29.08ZM43.6798 36.84L34.3598 46.04L49.7198 61.96C50.9598 63.28 52.6398 63.92 54.2798 63.92C55.9198 63.92 57.5598 63.28 58.8398 61.96C61.3598 59.36 61.3598 55.16 58.8398 52.56L43.6798 36.84ZM63.9998 10.12L54.1998 0L25.3198 29.84L28.8398 33.48L11.5998 51.32L7.63981 53.44L2.07981 62.52L3.47981 64L12.2798 58.24L14.3198 54.16L31.5998 36.32L35.1198 39.96L63.9998 10.12Z" fill="#1e40af"/>
+              </g>
+              <defs>
+                <clipPath id="clip0_4154_2339">
+                  <rect width="64" height="64" fill="white"/>
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <h3 className="text-[17px] font-semibold text-gray-900">Experienced Tech</h3>
+          <p className="mt-2 text-[14px] leading-relaxed text-gray-600">
+            Certified professionals with decades of combined expertise.
+          </p>
+        </motion.div>
+
+        {/* Card 4: Customer First */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+          className="rounded-[24px] border border-[#dbeafe] bg-white p-6 shadow-sm"
+        >
+          <div className="mb-4 text-[#1e40af]">
+            <svg
+              width="42"
+              height="42"
+              viewBox="0 0 64 64"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path fillRule="evenodd" clipRule="evenodd" d="M26.6656 10C23.1909 10 20.4602 12.736 20.4602 16C20.4602 19.264 23.1882 22 26.6656 22C30.1429 22 32.8736 19.264 32.8736 16C32.8736 12.736 30.1429 10 26.6656 10ZM16.4602 16C16.4602 10.4267 21.0789 6 26.6709 6C32.2602 6 36.8789 10.4267 36.8789 16C36.8789 21.5733 32.2602 26 26.6709 26C21.0816 26 16.4522 21.5733 16.4522 16M19.9189 31.9093C19.4309 31.5973 19.0656 31.5787 19.8949 31.624C18.5109 31.7307 18.1296 31.8444 17.7509 31.9653L15.1269 32.8053C14.228 33.0821 13.4059 33.5646 12.7259 34.2145C12.0459 34.8644 11.5268 35.6638 11.2096 36.5493C11.1386 36.7856 11.093 37.0287 11.0736 37.2747L10.0309 47.1387L10.0256 47.1733C9.82558 48.5787 10.5749 49.6533 11.7136 49.92C14.5856 50.5867 19.4229 51.3333 26.6629 51.3333C27.1933 51.3333 27.7021 51.544 28.0771 51.9191C28.4522 52.2942 28.6629 52.8029 28.6629 53.3333C28.6629 53.8638 28.4522 54.3725 28.0771 54.7476C27.7021 55.1226 27.1933 55.3333 26.6629 55.3333C19.1482 55.3333 14.0042 54.5547 10.8096 53.8133C7.37225 53.016 5.63092 49.7867 6.06025 46.648L7.09492 36.8533C7.14292 36.3947 7.22825 35.8267 7.43091 35.2427C7.951 33.7704 8.80688 32.4394 9.93073 31.3554C11.0546 30.2714 12.4155 29.464 13.9056 28.9973L16.5322 28.1547C16.9642 28.0178 17.398 27.8889 17.8336 27.768C19.4629 27.32 21.0123 27.856 22.0896 28.552C23.0763 29.192 24.6869 29.9627 26.6629 29.9627C28.6362 29.9627 30.2469 29.1893 31.2336 28.5493C32.3082 27.856 33.8602 27.32 35.4896 27.768C35.9251 27.8889 36.3589 28.0178 36.7909 28.1547L39.4176 28.9973C39.6728 29.0732 39.9104 29.1992 40.1163 29.368C40.3222 29.5369 40.4923 29.7452 40.6167 29.9806C40.741 30.2161 40.8171 30.474 40.8404 30.7393C40.8637 31.0045 40.8339 31.2718 40.7525 31.5254C40.6712 31.7789 40.5401 32.0137 40.3668 32.2159C40.1935 32.4181 39.9816 32.5837 39.7435 32.7029C39.5054 32.8221 39.2459 32.8926 38.9802 32.9102C38.7145 32.9278 38.448 32.8921 38.1962 32.8053L35.5722 31.9653C35.1924 31.8438 34.8101 31.73 34.4256 31.624C34.2576 31.5787 33.8922 31.5973 33.4069 31.9093C32.0389 32.7947 29.6736 33.9627 26.6602 33.9627C23.6469 33.9627 21.2869 32.7947 19.9189 31.9093ZM40.3989 43.0107C39.5402 44.104 39.3056 45.0187 39.3322 45.7893C39.3642 46.616 39.7082 47.5227 40.3989 48.512C41.8282 50.5573 44.3322 52.4133 46.5882 53.9787C46.6106 53.9942 46.6371 54.0024 46.6642 54.0024C46.6914 54.0024 46.7179 53.9942 46.7402 53.9787C49.0122 52.4053 51.5136 50.5493 52.9376 48.5093C53.6282 47.52 53.9696 46.616 53.9963 45.7893C54.0229 45.0213 53.7882 44.104 52.9269 43.008C51.5936 41.6747 49.7456 41.712 48.4336 42.8293C47.4202 43.696 45.9082 43.696 44.8922 42.8293C43.5802 41.7147 41.7349 41.6747 40.3989 43.0107ZM46.6656 39.1733C43.8762 37.3813 40.0949 37.5467 37.4576 40.296L37.3989 40.36L37.3456 40.4267C35.9269 42.1867 35.2709 44.0427 35.3402 45.9307C35.4069 47.7733 36.1562 49.416 37.1269 50.8027C39.0202 53.5147 42.1189 55.7413 44.3136 57.264C45.0044 57.7417 45.8244 57.9975 46.6642 57.9975C47.5041 57.9975 48.3241 57.7417 49.0149 57.264C51.2282 55.736 54.3269 53.5093 56.2202 50.7947C57.1882 49.408 57.9349 47.768 57.9963 45.9253C58.0629 44.04 57.4016 42.184 55.9856 40.4267L55.9322 40.36L55.8736 40.2987C53.2389 37.5467 49.4549 37.3813 46.6656 39.1733Z" fill="#1e40af"/>
+            </svg>
+          </div>
+          <h3 className="text-[17px] font-semibold text-gray-900">Customer First</h3>
+          <p className="mt-2 text-[14px] leading-relaxed text-gray-600">
+            We don't just fix electronics; we solve your problems.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

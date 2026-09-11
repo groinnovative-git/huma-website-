@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Menu, X } from "lucide-react";
+import { PHONE_HREF } from "@/lib/contact";
 
 type NavKey = "home" | "services" | "contact" | "about";
 
@@ -19,8 +21,15 @@ export default function Header({ active = "home" }: { active?: NavKey }) {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-surface/95 backdrop-blur">
       <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4">
-        <Link href="/" className="text-lg font-bold tracking-tight text-primary">
-          HUMA ELECTRONICS
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/Assest/logo.svg"
+            alt="Huma Electronics"
+            width={151}
+            height={28}
+            priority
+            className="h-10 w-auto -my-2"
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
@@ -41,7 +50,7 @@ export default function Header({ active = "home" }: { active?: NavKey }) {
 
         <div className="hidden items-center gap-3 lg:flex">
           <a
-            href="tel:+10000000000"
+            href={PHONE_HREF}
             className="inline-flex items-center gap-2 rounded-lg border border-primary px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary-soft"
           >
             <Phone className="h-4 w-4" aria-hidden="true" />
@@ -57,7 +66,7 @@ export default function Header({ active = "home" }: { active?: NavKey }) {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-lg p-2 text-ink lg:hidden"
+          className="inline-flex items-center justify-center rounded-lg p-2.5 text-ink lg:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
         >
@@ -85,7 +94,7 @@ export default function Header({ active = "home" }: { active?: NavKey }) {
           </nav>
           <div className="mt-4 flex flex-col gap-3">
             <a
-              href="tel:+10000000000"
+              href={PHONE_HREF}
               className="inline-flex items-center justify-center gap-2 rounded-lg border border-primary px-4 py-2 text-sm font-medium text-primary"
             >
               <Phone className="h-4 w-4" aria-hidden="true" />

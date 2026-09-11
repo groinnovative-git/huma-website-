@@ -6,28 +6,35 @@ import type { LucideIcon } from "lucide-react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export default function ServiceCard({
+  id,
   icon: Icon,
   title,
   caption,
   items,
   variant = "navigate",
   href = "#",
+  highlighted = false,
 }: {
+  id?: string;
   icon: LucideIcon;
   title: string;
   caption: string;
   items?: string[];
   variant?: "navigate" | "book";
   href?: string;
+  highlighted?: boolean;
 }) {
   return (
     <motion.div
+      id={id}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.4 }}
       whileHover={{ y: -4 }}
-      className="rounded-2xl border border-border bg-surface p-6 shadow-sm transition-shadow hover:shadow-md"
+      className={`scroll-mt-28 rounded-2xl border border-border bg-surface p-6 shadow-sm ring-2 ring-offset-2 ring-offset-surface transition-shadow duration-700 hover:shadow-md ${
+        highlighted ? "ring-primary" : "ring-transparent"
+      }`}
     >
       <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-soft">
         <Icon className="h-6 w-6 text-primary" aria-hidden="true" />

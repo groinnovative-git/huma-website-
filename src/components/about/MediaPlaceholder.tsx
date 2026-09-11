@@ -34,7 +34,7 @@ export default function MediaPlaceholder() {
               key={`${image.src}-${i}`}
               className="relative h-64 w-96 shrink-0 overflow-hidden rounded-3xl"
             >
-              <Image src={image.src} alt={image.alt} fill className="object-cover" />
+              <Image src={image.src} alt={image.alt} fill sizes="384px" className="object-cover" />
             </div>
           ))}
         </motion.div>

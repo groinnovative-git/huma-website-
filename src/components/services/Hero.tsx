@@ -47,6 +47,7 @@ export default function ServicesHero() {
             alt="Huma Electronics technicians repairing a microwave, robot vacuum, speaker, and circuit board on a workshop bench"
             fill
             priority
+            sizes="(min-width: 1024px) 630px, 100vw"
             className="object-cover"
           />
         </motion.div>

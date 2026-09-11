@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -20,7 +21,9 @@ export default function ServicesPage() {
       <main>
         <ServicesHero />
         <ExpertRepairSolutions />
-        <ServicesCatalog />
+        <Suspense fallback={null}>
+          <ServicesCatalog />
+        </Suspense>
         <ServiceBeyondExpectations />
         <CtaBanner />
       </main>

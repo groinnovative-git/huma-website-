@@ -19,7 +19,8 @@ export default function WorkshopCard() {
       className="relative overflow-hidden rounded-2xl bg-[#0F1E3D] p-5 text-white shadow-sm"
     >
       <Settings
-        className="pointer-events-none absolute -right-6 -top-6 h-32 w-32 text-white/5"
+        strokeWidth={2.5}
+        className="pointer-events-none absolute -right-12 -top-12 h-44 w-44 text-[#6B80A6]/30"
         aria-hidden="true"
       />
 

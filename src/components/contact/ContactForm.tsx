@@ -2,9 +2,16 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Wrench, User, Phone, Monitor, FileText, ArrowRight } from "lucide-react";
+import { Wrench, User, Phone, Mail, Monitor, FileText, ArrowRight, Loader2, CheckCircle2 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { SERVICES } from "@/lib/services";
+import emailjs from "@emailjs/browser";
+import {
+  EMAILJS_SERVICE_ID,
+  EMAILJS_TEMPLATE_CONTACT,
+  EMAILJS_TEMPLATE_AUTOREPLY,
+  EMAILJS_PUBLIC_KEY,
+} from "@/lib/emailjs";
 
 function FieldLabel({
   icon: Icon,
@@ -29,22 +36,70 @@ function FieldLabel({
 const fieldClassName =
   "mt-1.5 w-full rounded-lg border-0 bg-[#F1F5F9] px-3.5 py-2.5 text-sm text-ink outline-none ring-1 ring-transparent focus:ring-primary";
 
+type Status = "idle" | "sending" | "sent" | "error";
+
 export default function ContactForm() {
   const [form, setForm] = useState({
     fullName: "",
+    email: "",
     phone: "",
     appliance: "",
     description: "",
   });
+  const [status, setStatus] = useState<Status>("idle");
 
   function handleChange(field: keyof typeof form, value: string) {
     setForm((prev) => ({ ...prev, [field]: value }));
   }
 
-  function handleSubmit() {
-    // TODO: wire up to booking/support API endpoint
-    console.log("Send repair request", form);
+  async function handleSubmit() {
+    if (!form.fullName || !form.phone) return;
+
+    setStatus("sending");
+    try {
+      // Match your EmailJS template variables exactly
+      const templateParams = {
+        name: form.fullName,
+        phone: form.phone,
+        email: form.email,
+        service: form.appliance || "Not specified",
+        message: form.description || "No description provided",
+        reply_to: form.email,
+      };
+
+      // Send main contact email
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_CONTACT,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      // Send auto-reply to customer (needs their email)
+      if (form.email) {
+        try {
+          await emailjs.send(
+            EMAILJS_SERVICE_ID,
+            EMAILJS_TEMPLATE_AUTOREPLY,
+            templateParams,
+            EMAILJS_PUBLIC_KEY
+          );
+        } catch {
+          // Auto-reply is optional
+        }
+      }
+
+      setStatus("sent");
+      setForm({ fullName: "", email: "", phone: "", appliance: "", description: "" });
+      setTimeout(() => setStatus("idle"), 4000);
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 4000);
+    }
   }
+
+  const isSending = status === "sending";
 
   return (
     <motion.div
@@ -91,6 +146,19 @@ export default function ContactForm() {
         </div>
 
         <div className="sm:col-span-2">
+          <FieldLabel icon={Mail} htmlFor="contact-email">
+            Email
+          </FieldLabel>
+          <input
+            id="contact-email"
+            type="email"
+            value={form.email}
+            onChange={(e) => handleChange("email", e.target.value)}
+            className={fieldClassName}
+          />
+        </div>
+
+        <div className="sm:col-span-2">
           <FieldLabel icon={Monitor} htmlFor="contact-appliance">
             Select Appliance
           </FieldLabel>
@@ -123,13 +191,31 @@ export default function ContactForm() {
         </div>
       </div>
 
+      {status === "sent" && (
+        <div className="mt-4 flex items-center gap-2 rounded-lg bg-green-50 px-4 py-2.5 text-sm font-medium text-green-700">
+          <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
+          Request sent! We&apos;ll get back to you shortly.
+        </div>
+      )}
+
+      {status === "error" && (
+        <div className="mt-4 rounded-lg bg-red-50 px-4 py-2.5 text-sm font-medium text-red-700">
+          Something went wrong. Please try again.
+        </div>
+      )}
+
       <button
         type="button"
         onClick={handleSubmit}
-        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary-dark px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-primary active:scale-[0.99]"
+        disabled={isSending}
+        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary-dark px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-primary active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        <ArrowRight className="h-4 w-4" aria-hidden="true" />
-        Send Repair Request
+        {isSending ? (
+          <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+        ) : (
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        )}
+        {isSending ? "Sending..." : "Send Repair Request"}
       </button>
     </motion.div>
   );

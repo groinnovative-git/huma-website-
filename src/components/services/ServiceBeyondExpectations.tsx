@@ -27,6 +27,7 @@ export default function ServiceBeyondExpectations() {
             src="/Rectangle%20518.png"
             alt="Bright Huma Electronics repair lab with a technician at a microscope and diagnostic equipment"
             fill
+            sizes="(min-width: 1024px) 556px, 100vw"
             className="object-cover"
           />
         </motion.div>

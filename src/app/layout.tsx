@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
 import { Poppins, Inter } from "next/font/google";
 import FloatingContact from "@/components/FloatingContact";
+import { PHONE_E164, INSTAGRAM_HREF } from "@/lib/contact";
 import "./globals.css";
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Huma Electronics",
+  telephone: PHONE_E164,
+  sameAs: [INSTAGRAM_HREF],
+};
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -28,6 +37,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${poppins.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-surface text-body">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         {children}
         <FloatingContact />
       </body>

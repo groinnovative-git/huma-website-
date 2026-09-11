@@ -25,7 +25,13 @@ export default function SolutionCard({
       className="overflow-hidden rounded-2xl border border-border bg-surface shadow-sm transition-shadow hover:shadow-md"
     >
       <div className="relative aspect-[16/10] w-full">
-        <Image src={image} alt={alt} fill className="object-cover" />
+        <Image
+          src={image}
+          alt={alt}
+          fill
+          sizes="(min-width: 1024px) 368px, (min-width: 768px) 50vw, 100vw"
+          className="object-cover"
+        />
       </div>
       <div className="p-6">
         <h3 className="text-lg font-semibold text-ink">{title}</h3>

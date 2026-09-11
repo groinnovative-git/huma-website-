@@ -61,15 +61,20 @@ export default function Expertise() {
             whileHover={{ y: -4 }}
             className={`relative overflow-hidden rounded-2xl ${card.aspect} ${card.span}`}
           >
-            <Image src={card.src} alt={card.alt} fill className="object-cover" />
+            <Image
+              src={card.src}
+              alt={card.alt}
+              fill
+              sizes={
+                card.span === "lg:col-span-3"
+                  ? "(min-width: 1024px) 680px, 100vw"
+                  : "(min-width: 1024px) 446px, 100vw"
+              }
+              className="object-cover"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-5">
               <h3 className="text-lg font-semibold text-white">{card.title}</h3>
-              {card.description && (
-                <p className="mt-1 max-w-sm text-sm text-white/80">
-                  {card.description}
-                </p>
-              )}
             </div>
           </motion.div>
         ))}
