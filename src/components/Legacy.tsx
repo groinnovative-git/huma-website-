@@ -15,14 +15,12 @@ export default function Legacy() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5 }}
-          className="relative mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-2xl bg-border lg:max-w-sm"
+          className="relative mx-auto w-full max-w-xs overflow-hidden rounded-2xl bg-border lg:max-w-sm"
         >
-          <Image
-            src="/founde.png"
+          <img
+            src="/dad2.png"
             alt="Founder of Huma Electronics in his office"
-            fill
-            sizes="(min-width: 1024px) 384px, 320px"
-            className="object-cover"
+            className="h-auto w-full rounded-2xl object-cover"
           />
         </motion.div>
 

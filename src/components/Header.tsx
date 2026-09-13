@@ -23,7 +23,7 @@ export default function Header({ active = "home" }: { active?: NavKey }) {
       <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center">
           <Image
-            src="/Assest/logo.svg"
+            src="/Assest/logo2 .svg"
             alt="Huma Electronics"
             width={151}
             height={28}

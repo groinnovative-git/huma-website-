@@ -34,9 +34,7 @@ const solutions = [
     image: "/Rectangle%20499.png",
     alt: "Modern living room and kitchen with premium home appliances",
     items: [
-      "Smart Refrigerators",
       "Microwave & Induction Ovens",
-      "Washing Machines & Dryers",
       "Built-in Dishwashers",
     ],
   },

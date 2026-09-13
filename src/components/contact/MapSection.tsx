@@ -8,7 +8,7 @@ const ADDRESS =
 
 // Google Maps embed — no API key required. Swap the query for the exact
 // pin/place once the workshop has a verified Google Maps listing.
-const MAP_SRC = `https://www.google.com/maps?q=${encodeURIComponent(ADDRESS)}&output=embed`;
+const MAP_SRC = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.2958775584098!2d55.29084907437914!3d25.260630429130288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43a39b31dac7%3A0x1d54e33902559dae!2sHuma%20Electronics!5e0!3m2!1sen!2sin!4v1789230864079!5m2!1sen!2sin";
 
 export default function MapSection() {
   return (
