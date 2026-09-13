@@ -11,21 +11,20 @@ export type Review = {
 
 export const REVIEWS: Review[] = [
   {
-    id: "faheem",
-    name: "Faheem Khan",
+    id: "vahid",
+    name: "Vahid Randathani",
     isLocalGuide: false,
     reviewCount: 1,
-
     isNew: true,
+    text: "I don't believe there is a more professional technician in Dubai than achayan (Shaju) at huma Electronics for repairing...",
   },
   {
-    id: "williams",
-    name: "Williams Fernandas",
-    isLocalGuide: false,
-    reviewCount: 2,
-
+    id: "arghi",
+    name: "Arghi V B",
+    isLocalGuide: true,
+    reviewCount: 5,
     isNew: true,
-    text: "Good",
+    text: "Go to electronic repair shop. All services are done with at most care. Experienced and professional technicians are available here.",
   },
   {
     id: "sundar",

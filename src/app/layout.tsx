@@ -28,6 +28,9 @@ export const metadata: Metadata = {
   title: "Huma Electronics | Expert Repair & Service for Your Home Electronics",
   description:
     "Huma Electronics offers specialized repair and maintenance for TVs, audio systems, home appliances, and more. Book a service and get expert technical support at your doorstep.",
+  icons: {
+    icon: "/Assest/favicon-96x96.png",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

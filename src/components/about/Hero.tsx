@@ -46,7 +46,7 @@ export default function AboutHero() {
           className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl"
         >
           <Image
-            src="/about-hero.jpg"
+            src="/aboutimg.png"
             alt="The Huma Electronics Workshop storefront, with TV, audio, and appliance repair signage"
             fill
             priority
